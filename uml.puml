@@ -1,0 +1,34 @@
+@startuml
+class Door {
+- DoorState state
+~ void setState(DoorState)
++ void open()
++ void lock()
++ void unlock()
++ {static} void main(String[])
+}
+
+
+class Unlocked {
++ void open(Door)
++ void lock(Door)
++ void unlock(Door)
+}
+
+class Locked {
++ void open(Door)
++ void lock(Door)
++ void unlock(Door)
+}
+
+interface DoorState {
+~ void open(Door)
+~ void lock(Door)
+~ void unlock(Door)
+}
+
+
+
+DoorState <|.. Unlocked
+DoorState <|.. Locked
+@enduml
